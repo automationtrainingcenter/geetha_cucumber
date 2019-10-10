@@ -18,16 +18,27 @@
 #Sample Feature Definition Template
 Feature: As a Admin I want to do login so that I can see Admin home page with logut link
 
+	Background:
+		Given admin is in bank home page
+
   Scenario: Login with valid credentials
-    Given admin is in bank home page
     When admin enters valid username
     And admin enters valid password
     And click on login button
     Then user can see welcome to Admin message with logout link
 
   Scenario: Login with invalid password
-    Given admin is in bank home page
     When admin enters valid username
     But admin enters invalid password
     And click on login button
     Then admin can see an error message saying incorrect bankername or password
+
+  Scenario: Login with invalid username
+    When admin enters invalid user name
+    And admin enters valid password
+    And click on login button
+    Then admin can see an error message saying incorrect bankername or password
+    
+  Scenario: Loign without filling credentials
+  	When click on login button
+  	Then admin can see an error message saying please fill fillowing fields

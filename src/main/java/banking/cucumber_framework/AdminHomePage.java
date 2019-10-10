@@ -62,4 +62,13 @@ public class AdminHomePage {
 		this.branches.click();
 	}
 
+	
+	// is logout link displayed or not
+	public boolean isAdminHomePageDisplayed() {
+		if(this.driver.getCurrentUrl().contains("adminflow") && this.logout.isDisplayed()) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

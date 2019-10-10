@@ -9,17 +9,17 @@ public class BankHomePage {
 
 	// username
 	public WebElement username() {
-		return this.driver.findElement(By.id(""));
+		return this.driver.findElement(By.id("txtuId"));
 	}
 
 	// password
 	public WebElement password() {
-		return this.driver.findElement(By.id(""));
+		return this.driver.findElement(By.id("txtPword"));
 	}
 
 	// login button
 	public WebElement loginButton() {
-		return this.driver.findElement(By.id(""));
+		return this.driver.findElement(By.id("login"));
 	}
 
 	public BankHomePage(WebDriver driver) {
