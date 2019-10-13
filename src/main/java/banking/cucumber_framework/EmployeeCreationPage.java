@@ -7,25 +7,21 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class EmployeeCreationPage {
-	
+
 	WebDriver driver;
 
-	
 	@FindBy(id = "txtUname")
 	private WebElement EmployerName;
 
-	
 	@FindBy(id = "txtLpwd")
 	private WebElement LoginPassword;
-	
+
 	@FindBy(id = "lst_Roles")
 	private WebElement roleType;
-	
+
 	@FindBy(id = "lst_Branch")
 	private WebElement branchType;
 
-
-	
 	@FindBy(id = "BtnSubmit")
 	private WebElement submit;
 
@@ -41,12 +37,12 @@ public class EmployeeCreationPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public void fillEmployerName(String employerName) {
 		this.EmployerName.clear();
 		this.EmployerName.sendKeys(employerName);
 	}
-	
+
 	public void fillLoginpassword(String loginpassword) {
 		this.LoginPassword.sendKeys(loginpassword);
 	}
@@ -54,7 +50,7 @@ public class EmployeeCreationPage {
 	public void selectRoleType(String roleType) {
 		new Select(this.roleType).selectByVisibleText(roleType);
 	}
-	
+
 	public void selectBranchType(String branchType) {
 		new Select(this.branchType).selectByVisibleText(branchType);
 	}
@@ -70,10 +66,10 @@ public class EmployeeCreationPage {
 	public void clickCancel() {
 		this.cancel.click();
 	}
-	
-	
+
+	public boolean isFormReset() {
+		return JavaScriptHelper.getElementText(driver, this.EmployerName).isEmpty()
+				&& JavaScriptHelper.getElementText(driver, this.LoginPassword).isEmpty();
+	}
 
 }
-
-
-

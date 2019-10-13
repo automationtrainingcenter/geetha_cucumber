@@ -2,7 +2,12 @@ $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.
 formatter.feature({
   "name": "As a admin I want to create a role so that I can see role created successfully",
   "description": "",
-  "keyword": "Feature"
+  "keyword": "Feature",
+  "tags": [
+    {
+      "name": "@role"
+    }
+  ]
 });
 formatter.background({
   "name": "",
@@ -53,48 +58,65 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Role creation with invalid role name",
+  "name": "Role creation reset with multiple sets of data",
   "description": "",
-  "keyword": "Scenario"
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@role"
+    },
+    {
+      "name": "@role_reset"
+    },
+    {
+      "name": "@dd"
+    }
+  ]
 });
 formatter.step({
-  "name": "admin enters invalid role name then admin can see an error message",
+  "name": "admin clicks reset button after filling role creation form then admin can see an empty form",
   "rows": [
     {
       "cells": [
-        "role_name"
+        "role_name",
+        "role_type"
       ]
     },
     {
       "cells": [
-        "role123"
+        "roleOne",
+        "E"
       ]
     },
     {
       "cells": [
-        "role@23"
+        "roleTwo",
+        "E"
       ]
     },
     {
       "cells": [
-        "role.$#"
+        "roleThree",
+        "E"
       ]
     },
     {
       "cells": [
-        "1234567"
+        "roleFour",
+        "E"
       ]
     },
     {
       "cells": [
-        "*\u0026^%$#"
+        "roleFive",
+        "E"
       ]
     }
   ],
   "keyword": "When "
 });
 formatter.match({
-  "location": "RoleCreationSteps.admin_enters_invalid_role_name_then_admin_can_see_an_error_message(DataTable)"
+  "location": "RoleCreationSteps.admin_clicks_reset_button_after_filling_role_creation_form_then_admin_can_see_an_empty_form(DataTable)"
 });
 formatter.result({
   "status": "passed"

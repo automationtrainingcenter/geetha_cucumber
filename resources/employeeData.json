@@ -1,0 +1,26 @@
+[
+	{
+		"employee_name": "empOne",
+		"login_pass": "passowrddd",
+		"role": "ManagerB",
+		"branch": "lingampalli"
+	},
+	{
+		"employee_name": "empTwo",
+		"login_pass": "passowrddd",
+		"role": "ManagerB",
+		"branch": "lingampalli"
+	},
+	{
+		"employee_name": "empThree",
+		"login_pass": "passowrddd",
+		"role": "ManagerB",
+		"branch": "lingampalli"
+	},
+	{
+		"employee_name": "empFour",
+		"login_pass": "passowrddd",
+		"role": "ManagerB",
+		"branch": "lingampalli"
+	}
+]

@@ -1,4 +1,5 @@
 # example on how to pass data from feature file
+@branch
 Feature: As a admin I want to create a new branch so that I can see branch created succesfully message
 
   Background: 
@@ -7,6 +8,7 @@ Feature: As a admin I want to create a new branch so that I can see branch creat
     And admin is in branch details page by clicking branches button
     And admin is in branch creation page by clicking new branch button
 
+	@branch_create_valid
   Scenario: Branch creation with valid data
     When admin enters valid branch name "jersybranch"
     And admin enters valid address1 "king street"
@@ -17,6 +19,7 @@ Feature: As a admin I want to create a new branch so that I can see branch creat
     And admin clicks on submit button
     Then admin can see a message saying new branch created successfully with some id
 
+	@branch_reset @dd
   Scenario Outline: Branch creation reset with valid multiple sets of data
     When admin enters valid branch name "<branch_name>"
     And admin enters valid address1 "<address1>"

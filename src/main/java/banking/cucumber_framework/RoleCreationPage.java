@@ -61,5 +61,10 @@ public class RoleCreationPage {
 	public void clickCancel() {
 		this.cancel.click();
 	}
+	
+	// verify form reseted or not
+	public boolean isFormReset() {
+		return JavaScriptHelper.getElementText(driver, this.roleName).isEmpty();
+	}
 
 }
