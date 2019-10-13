@@ -87,4 +87,15 @@ public class BranchCreationPage {
 	public void clickCancel() {
 		this.Cancel.click();
 	}
+	
+	public boolean isFromReset() {
+		String branchNameText = JavaScriptHelper.getElementText(this.driver, this.branchName);
+		String address1Text = JavaScriptHelper.getElementText(this.driver, this.Adress1);
+		String zipcodeText = JavaScriptHelper.getElementText(this.driver, this.ZipCode);
+		if (branchNameText.isEmpty() && address1Text.isEmpty() && zipcodeText.isEmpty()){
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

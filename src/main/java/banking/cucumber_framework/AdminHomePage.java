@@ -7,10 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdminHomePage {
 	// implementing using page factory
 	private WebDriver driver;
+	private WebDriverWait wait;
 	// home button
 	@FindBy(css="a[href='adminflow.aspx']")
 	private WebElement home;
@@ -34,6 +37,7 @@ public class AdminHomePage {
 	// constructor
 	public AdminHomePage(WebDriver driver) {
 		this.driver = driver;
+		wait = new WebDriverWait(this.driver, 30);
 		PageFactory.initElements(this.driver, this);
 	}
 
@@ -65,7 +69,8 @@ public class AdminHomePage {
 	
 	// is logout link displayed or not
 	public boolean isAdminHomePageDisplayed() {
-		if(this.driver.getCurrentUrl().contains("adminflow") && this.logout.isDisplayed()) {
+		WebElement logoutEle = wait.until(ExpectedConditions.visibilityOf(this.logout));
+		if(this.driver.getCurrentUrl().contains("adminflow") && logoutEle.isDisplayed()) {
 			return true;
 		}else {
 			return false;

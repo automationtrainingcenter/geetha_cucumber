@@ -7,25 +7,33 @@ import org.openqa.selenium.support.PageFactory;
 
 import banking.cucumber_framework.AdminHomePage;
 import banking.cucumber_framework.BankHomePage;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utilities.BrowserHelper;
 
-public class LoginSteps extends CommonSteps{
-	BankHomePage bankHomePage; 
+public class LoginSteps{
+	BankHomePage bankHomePage;
+	private WebDriver driver;
+	private CommonSteps commonSteps;
 	
+	
+	// constructor
+	public LoginSteps(CommonSteps commonSteps) {
+		this.commonSteps = commonSteps;
+		this.driver = this.commonSteps.getDriver();
+	}
 	
 	@Given("^admin is in bank home page$")
 	public void admin_is_in_bank_home_page() throws Throwable {
-		launch("chorme");
 		this.driver.get("http://primusbank.qedgetech.com/home.aspx");
+		this.bankHomePage = new BankHomePage(this.driver);
 	}
 
 	@When("^admin enters valid username$")
 	public void admin_enters_valid_username() throws Throwable {
-		bankHomePage = new BankHomePage(this.driver);
 		this.bankHomePage.fillUserName("Admin");
 	}
 

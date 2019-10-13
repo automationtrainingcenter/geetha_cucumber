@@ -2,6 +2,7 @@ package stepdefinition;
 
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import banking.cucumber_framework.AdminHomePage;
@@ -12,11 +13,18 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class BranchCreationSteps extends CommonSteps{
+public class BranchCreationSteps{
+	private WebDriver driver;
+	private CommonSteps commonSteps;
 	private AdminHomePage adminHomePage;
 	BranchDetailsPage branchDetailsPage;
 	BranchCreationPage branchCreationPage;
 	Alert alert;
+	
+	public BranchCreationSteps(CommonSteps commonSteps) {
+		this.commonSteps = commonSteps;
+		this.driver = this.commonSteps.getDriver();
+	}
 	
 	@Given("admin is in admin home page by doing valid login")
 	public void admin_is_in_admin_home_page_by_doing_valid_login() {
@@ -80,6 +88,16 @@ public class BranchCreationSteps extends CommonSteps{
 	    String text = alert.getText();
 	    alert.accept();
 	    Assert.assertTrue(text.toLowerCase().contains("new branch with id"));
+	}
+	
+	@When("admin clicks on reset button")
+	public void admin_clicks_on_reset_button() {
+	    this.branchCreationPage.clickReset();
+	}
+
+	@Then("admin can see an empty creation form")
+	public void admin_can_see_an_empty_creation_form() {
+	    Assert.assertTrue(this.branchCreationPage.isFromReset());
 	}
 
 }

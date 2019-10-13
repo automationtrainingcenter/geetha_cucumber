@@ -91,6 +91,14 @@
 			<version>1.9.4.1</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>4.3.1</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies><!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
 
