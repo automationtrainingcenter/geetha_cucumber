@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		monochrome = true
 		,plugin = {"pretty", "html:target/reports"}
 //		,dryRun = true
-		,tags = {"@login_valid"}
+		,tags = {"@role_excel"}
 )
 public class TestRunner {
 

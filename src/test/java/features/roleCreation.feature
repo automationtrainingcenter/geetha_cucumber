@@ -1,4 +1,3 @@
-
 @role
 Feature: As a admin I want to create a role so that I can see role created successfully
 
@@ -26,3 +25,9 @@ Feature: As a admin I want to create a role so that I can see role created succe
       | roleThree | E         |
       | roleFour  | E         |
       | roleFive  | E         |
+
+   @role_excel
+  Scenario: Role creation reset with data from excel file
+    When admin clicks reset button after filling role creation data by taking data from a excel file
+       |folderName|fileName|sheetName|
+       |resources| testdata.xls|roleData    |

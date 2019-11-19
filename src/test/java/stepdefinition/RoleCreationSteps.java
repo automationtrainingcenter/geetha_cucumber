@@ -3,6 +3,7 @@ package stepdefinition;
 import java.util.List;
 import java.util.Map;
 
+import banking.cucumber_framework.Excel;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -75,6 +76,20 @@ public class RoleCreationSteps {
 			String roleType = row.get("role_type");
 			roleCreationPage.fillRoleName(roleName);
 			roleCreationPage.selectRoleType(roleType);
+			roleCreationPage.clickReset();
+			Assert.assertTrue(roleCreationPage.isFormReset());
+		}
+	}
+
+	@When("admin clicks reset button after filling role creation data by taking data from a excel file")
+	public void admin_clicks_reset_button_after_filling_role_creation_data_by_taking_data_from_a_excel_file(io.cucumber.datatable.DataTable dataTable) {
+		List<Excel> data = dataTable.asList(Excel.class);
+		Excel excel = data.get(0);
+		List<List<String>> excelData = excel.getExcelData();
+		for(List<String> row : excelData){
+			roleCreationPage.fillRoleName(row.get(0));
+			roleCreationPage.fillRoleDescription(row.get(1));
+			roleCreationPage.selectRoleType(row.get(2));
 			roleCreationPage.clickReset();
 			Assert.assertTrue(roleCreationPage.isFormReset());
 		}

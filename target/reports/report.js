@@ -58,7 +58,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Role creation reset with multiple sets of data",
+  "name": "Role creation reset with data from excel file",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -66,57 +66,32 @@ formatter.scenario({
       "name": "@role"
     },
     {
-      "name": "@role_reset"
-    },
-    {
-      "name": "@dd"
+      "name": "@role_excel"
     }
   ]
 });
 formatter.step({
-  "name": "admin clicks reset button after filling role creation form then admin can see an empty form",
+  "name": "admin clicks reset button after filling role creation data by taking data from a excel file",
   "rows": [
     {
       "cells": [
-        "role_name",
-        "role_type"
+        "folderName",
+        "fileName",
+        "sheetName"
       ]
     },
     {
       "cells": [
-        "roleOne",
-        "E"
-      ]
-    },
-    {
-      "cells": [
-        "roleTwo",
-        "E"
-      ]
-    },
-    {
-      "cells": [
-        "roleThree",
-        "E"
-      ]
-    },
-    {
-      "cells": [
-        "roleFour",
-        "E"
-      ]
-    },
-    {
-      "cells": [
-        "roleFive",
-        "E"
+        "resources",
+        "testdata.xls",
+        "roleData"
       ]
     }
   ],
   "keyword": "When "
 });
 formatter.match({
-  "location": "RoleCreationSteps.admin_clicks_reset_button_after_filling_role_creation_form_then_admin_can_see_an_empty_form(DataTable)"
+  "location": "RoleCreationSteps.admin_clicks_reset_button_after_filling_role_creation_data_by_taking_data_from_a_excel_file(DataTable)"
 });
 formatter.result({
   "status": "passed"
